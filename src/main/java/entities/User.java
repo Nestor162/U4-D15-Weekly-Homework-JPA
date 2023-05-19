@@ -32,7 +32,7 @@ public class User {
 	private String phoneNumber;
 	private LocalDate registrationDate;
 
-	@OneToMany(mappedBy = "users")
+	@OneToMany(mappedBy = "user")
 	private Set<Loan> loans;
 
 	public User(String name, String surname, String addres, String email,
