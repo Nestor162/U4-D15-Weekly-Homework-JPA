@@ -97,6 +97,7 @@ public class Application {
 		pd.getByAuthorName("Brandon Sanderson");
 
 		// 6) Ricerca per titolo o parte di esso
+		pd.getByTitle("battle");
 
 		em.close();
 		emf.close();

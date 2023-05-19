@@ -65,6 +65,17 @@ public class PublicationDAO {
 		publications.forEach(p -> log.info(p.toString()));
 	}
 
+	public void getByTitle(String title) {
+		TypedQuery<Publication> query = em.createQuery(
+				"SELECT p FROM Publication p WHERE  LOWER(p.title) LIKE CONCAT('%', :title, '%')",
+				Publication.class);
+		query.setParameter("title", title.toLowerCase());
+		List<Publication> publications = query.getResultList();
+
+		log.info("Elementi che contengono " + title + " nel titolo: ");
+		publications.forEach(p -> log.info(p.toString()));
+	}
+
 	public void refresh(String ISBN) {
 		Publication found = em.find(Publication.class, ISBN);
 
