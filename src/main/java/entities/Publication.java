@@ -1,10 +1,13 @@
 package entities;
 
+import java.util.Set;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -26,6 +29,9 @@ public abstract class Publication {
 	protected String title;
 	protected int publicationYear;
 	protected int numPages;
+
+	@OneToMany(mappedBy = "publication")
+	private Set<Loan> loans;
 
 	protected Publication(String ISBN, String title, int publicationYear,
 			int numPages) {

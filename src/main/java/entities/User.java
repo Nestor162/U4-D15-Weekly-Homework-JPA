@@ -1,12 +1,14 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -29,6 +31,9 @@ public class User {
 	private String email;
 	private String phoneNumber;
 	private LocalDate registrationDate;
+
+	@OneToMany(mappedBy = "users")
+	private Set<Loan> loans;
 
 	public User(String name, String surname, String addres, String email,
 			String phoneNumber, LocalDate registrationDate) {
