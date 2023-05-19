@@ -62,20 +62,31 @@ public class Application {
 		Loan loan3 = new Loan(LocalDate.now().minusDays(20), null, book1,
 				user1);
 
-		pd.save(book1);
-		pd.save(book2);
-		pd.save(book3);
-		pd.save(magazine1);
-		pd.save(magazine2);
-		pd.save(magazine3);
+// *********** OPERAZIONI **************
+// 1) Aggiunta elementi al catalogo
+//		pd.save(book1);
+//		pd.save(book2);
+//		pd.save(book3);
+//		pd.save(magazine1);
+//		pd.save(magazine2);
+//		pd.save(magazine3);
+//
+//		ud.save(user1);
+//		ud.save(user2);
+//		ud.save(user3);
+//
+//		ld.save(loan1);
+//		ld.save(loan2);
+//		ld.save(loan3);
 
-		ud.save(user1);
-		ud.save(user2);
-		ud.save(user3);
+		// 2) Rimozione di un elemento del catalogo dato un codice ISBN
+//		pd.delete("9780123456789");
 
-		ld.save(loan1);
-		ld.save(loan2);
-		ld.save(loan3);
+		// 3) Ricerca per ISBN
+		pd.getByISBN("9780765356147");
+		pd.getByISBN("987654321");
+
+		// 4) Ricerca per anno pubblicazione
 
 		em.close();
 		emf.close();
