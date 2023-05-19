@@ -56,20 +56,22 @@ public class Application {
 		User user3 = new User("Luca", "Ferrari", "Corso Vittorio Emanuele 789",
 				"luca.ferrari@example.com", "+39 456789123", LocalDate.now());
 
-		Loan loan1 = new Loan(LocalDate.now(), null);
-		Loan loan2 = new Loan(LocalDate.now().minusDays(7), LocalDate.now());
-		Loan loan3 = new Loan(LocalDate.now().minusDays(20), null);
+		Loan loan1 = new Loan(LocalDate.now(), null, book2, user3);
+		Loan loan2 = new Loan(LocalDate.now().minusDays(7), LocalDate.now(),
+				magazine1, user2);
+		Loan loan3 = new Loan(LocalDate.now().minusDays(20), null, book1,
+				user1);
 
-//		pd.save(book1);
-//		pd.save(book2);
-//		pd.save(book3);
-//		pd.save(magazine1);
-//		pd.save(magazine2);
-//		pd.save(magazine3);
+		pd.save(book1);
+		pd.save(book2);
+		pd.save(book3);
+		pd.save(magazine1);
+		pd.save(magazine2);
+		pd.save(magazine3);
 
-//		ud.save(user1);
-//		ud.save(user2);
-//		ud.save(user3);
+		ud.save(user1);
+		ud.save(user2);
+		ud.save(user3);
 
 		ld.save(loan1);
 		ld.save(loan2);
