@@ -99,6 +99,10 @@ public class Application {
 		// 6) Ricerca per titolo o parte di esso
 		pd.getByTitle("battle");
 
+		// 7) Ricerca degli elementi attualmente in prestito dato un numero di
+		// tessera utente
+		pd.isBorrowed("35b270be-b41c-4593-a999-a03609ddc6ea");
+
 		em.close();
 		emf.close();
 	}

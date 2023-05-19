@@ -1,11 +1,13 @@
 package dao;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import entities.Loan;
 import entities.Publication;
 import lombok.extern.slf4j.Slf4j;
 
@@ -74,6 +76,16 @@ public class PublicationDAO {
 
 		log.info("Elementi che contengono " + title + " nel titolo: ");
 		publications.forEach(p -> log.info(p.toString()));
+	}
+
+	public void isBorrowed(String id) {
+		TypedQuery<Loan> query = em.createQuery(
+				"SELECT l FROM Loan l WHERE l.user.id = :id ", Loan.class);
+		query.setParameter("id", UUID.fromString(id));
+		List<Loan> publications = query.getResultList();
+
+		log.info("Elementi presi in prestito da utente con id" + id + ": ");
+		publications.forEach(l -> log.info(l.toString()));
 	}
 
 	public void refresh(String ISBN) {
