@@ -33,20 +33,22 @@ public class Loan {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User users;
+	private User user;
+
+	public Loan(LocalDate loanDate, LocalDate returnedDate,
+			Publication publication, User user) {
+		this.loanDate = loanDate;
+		this.expectedReturnDate = loanDate.plusDays(30);
+		this.returnedDate = returnedDate;
+		this.publication = publication;
+		this.user = user;
+	}
 
 	@Override
 	public String toString() {
 		return "Loan [id=" + id + ", loanDate=" + loanDate
 				+ ", expectedReturnDate=" + expectedReturnDate
 				+ ", returnedDate=" + returnedDate + "]";
-	}
-
-	public Loan(LocalDate loanDate, LocalDate returnedDate) {
-
-		this.loanDate = loanDate;
-		this.expectedReturnDate = loanDate.plusDays(30);
-		this.returnedDate = returnedDate;
 	}
 
 }
