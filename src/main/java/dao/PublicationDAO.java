@@ -36,7 +36,7 @@ public class PublicationDAO {
 
 	public void getByISBN(String ISBN) {
 		Publication found = em.find(Publication.class, ISBN);
-		log.info("TrovatoElemento con codice ISBN: " + ISBN
+		log.info("Trovato elemento con codice ISBN: " + ISBN
 				+ System.lineSeparator() + found.toString());
 	}
 
