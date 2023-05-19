@@ -103,6 +103,9 @@ public class Application {
 		// tessera utente
 		pd.isBorrowed("35b270be-b41c-4593-a999-a03609ddc6ea");
 
+		// 8) Ricerca di tutti i prestiti scaduti e non ancora restituiti
+		pd.overdueLoansNotReturned();
+
 		em.close();
 		emf.close();
 	}

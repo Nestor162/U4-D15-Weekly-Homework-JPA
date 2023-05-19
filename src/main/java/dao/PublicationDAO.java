@@ -88,6 +88,17 @@ public class PublicationDAO {
 		publications.forEach(l -> log.info(l.toString()));
 	}
 
+	public void overdueLoansNotReturned() {
+		TypedQuery<Loan> query = em.createQuery(
+				"SELECT l FROM Loan l WHERE l.returnedDate IS NULL AND l.expectedReturnDate < CURRENT_DATE()",
+				Loan.class);
+
+		List<Loan> publications = query.getResultList();
+
+		log.info("Prestiti scaduti e non restituiti: ");
+		publications.forEach(l -> log.info(l.toString()));
+	}
+
 	public void refresh(String ISBN) {
 		Publication found = em.find(Publication.class, ISBN);
 
