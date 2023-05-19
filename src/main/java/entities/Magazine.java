@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ public class Magazine extends Publication {
 		WEEKLY, MONTHLY, SEMIANNUAL
 	}
 
+	@Enumerated(EnumType.STRING)
 	private publicationFrequency frequency;
 
 	public Magazine(String ISBN, String title, int publicationYear,
