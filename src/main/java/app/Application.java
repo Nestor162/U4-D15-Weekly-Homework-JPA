@@ -38,6 +38,10 @@ public class Application {
 		Book book3 = new Book("9780765356147", "Mistborn: Hero of Ages", 2008,
 				572, "Brandon Sanderson", "Fantasy");
 
+		Book book4 = new Book("9780765326379",
+				"The Stormlight Archive: The Way of Kings", 2010, 1007,
+				"Brandon Sanderson", "Fantasy");
+
 		Magazine magazine1 = new Magazine("987654321", "National Geographic",
 				2021, 100, Magazine.publicationFrequency.MONTHLY);
 
@@ -88,6 +92,12 @@ public class Application {
 
 		// 4) Ricerca per anno pubblicazione
 		pd.getByYear(1999);
+
+		// 5) Ricerca per autore
+		pd.getByAuthorName("Brandon Sanderson");
+
+		// 6) Ricerca per titolo o parte di esso
+
 		em.close();
 		emf.close();
 	}

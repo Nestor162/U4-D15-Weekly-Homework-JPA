@@ -54,6 +54,17 @@ public class PublicationDAO {
 				+ year + System.lineSeparator() + p.toString()));
 	}
 
+	public void getByAuthorName(String author) {
+		TypedQuery<Publication> query = em.createQuery(
+				"SELECT p FROM Publication p WHERE p.author = :author AND TYPE(p) = Book",
+				Publication.class);
+		query.setParameter("author", author);
+		List<Publication> publications = query.getResultList();
+
+		log.info("Libri pubblicati da" + author + ":");
+		publications.forEach(p -> log.info(p.toString()));
+	}
+
 	public void refresh(String ISBN) {
 		Publication found = em.find(Publication.class, ISBN);
 

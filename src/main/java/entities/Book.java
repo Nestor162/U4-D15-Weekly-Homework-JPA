@@ -23,9 +23,4 @@ public class Book extends Publication {
 		this.genre = genre;
 	}
 
-	@Override
-	public String toString() {
-		return "Book [author=" + author + ", genre=" + genre + "]";
-	}
-
 }
