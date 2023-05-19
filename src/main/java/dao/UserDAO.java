@@ -5,7 +5,6 @@ import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import entities.Publication;
 import entities.User;
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,7 +25,7 @@ public class UserDAO {
 	}
 
 	public void delete(String id) {
-		Publication found = em.find(Publication.class, UUID.fromString(id));
+		User found = em.find(User.class, UUID.fromString(id));
 		if (found != null) {
 			EntityTransaction transaction = em.getTransaction();
 			transaction.begin();
@@ -38,13 +37,13 @@ public class UserDAO {
 	}
 
 	public void getById(String id) {
-		Publication found = em.find(Publication.class, UUID.fromString(id));
+		User found = em.find(User.class, UUID.fromString(id));
 		log.info("Trovato utente con id: " + id + System.lineSeparator()
 				+ found.toString());
 	}
 
 	public void refresh(String id) {
-		Publication found = em.find(Publication.class, UUID.fromString(id));
+		User found = em.find(User.class, UUID.fromString(id));
 
 		em.refresh(found);
 		log.info("Ripristinato Evento ai valori: " + found);
