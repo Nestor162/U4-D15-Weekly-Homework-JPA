@@ -87,23 +87,45 @@ public class Application {
 //		pd.delete("9780123456789");
 
 		// 3) Ricerca per ISBN
+		System.out
+				.println("**************** RICERCA PER ISBN ****************");
 		pd.getByISBN("9780765356147");
 		pd.getByISBN("987654321");
 
+		System.out.println();
+
 		// 4) Ricerca per anno pubblicazione
+		System.out
+				.println("**************** RICERCA PER ANNO ****************");
 		pd.getByYear(1999);
 
+		System.out.println();
+
 		// 5) Ricerca per autore
+		System.out.println(
+				"**************** RICERCA PER AUTORE ****************");
 		pd.getByAuthorName("Brandon Sanderson");
 
+		System.out.println();
+
 		// 6) Ricerca per titolo o parte di esso
+		System.out.println(
+				"**************** RICERCA PER TITOLO (O PARTE) ****************");
 		pd.getByTitle("battle");
+
+		System.out.println();
 
 		// 7) Ricerca degli elementi attualmente in prestito dato un numero di
 		// tessera utente
+		System.out.println(
+				"**************** LIBRI IN PRESTITO DA ID UTENTE ****************");
 		pd.isBorrowed("35b270be-b41c-4593-a999-a03609ddc6ea");
 
+		System.out.println();
+
 		// 8) Ricerca di tutti i prestiti scaduti e non ancora restituiti
+		System.out.println(
+				"**************** PRESTITI SCADUTI E NON RESTITUITI ****************");
 		pd.overdueLoansNotReturned();
 
 		em.close();
