@@ -8,9 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dao.LoanDAO;
 import dao.PublicationDAO;
 import dao.UserDAO;
 import entities.Book;
+import entities.Loan;
 import entities.Magazine;
 import entities.User;
 import utils.JpaUtil;
@@ -25,6 +27,7 @@ public class Application {
 
 		PublicationDAO pd = new PublicationDAO(em);
 		UserDAO ud = new UserDAO(em);
+		LoanDAO ld = new LoanDAO(em);
 
 		Book book1 = new Book("9780553573398", "Assassin's Apprentice", 1995,
 				464, "Robin Hobb", "Fantasy");
@@ -53,6 +56,10 @@ public class Application {
 		User user3 = new User("Luca", "Ferrari", "Corso Vittorio Emanuele 789",
 				"luca.ferrari@example.com", "+39 456789123", LocalDate.now());
 
+		Loan loan1 = new Loan(LocalDate.now(), null);
+		Loan loan2 = new Loan(LocalDate.now().minusDays(7), LocalDate.now());
+		Loan loan3 = new Loan(LocalDate.now().minusDays(20), null);
+
 //		pd.save(book1);
 //		pd.save(book2);
 //		pd.save(book3);
@@ -63,6 +70,10 @@ public class Application {
 //		ud.save(user1);
 //		ud.save(user2);
 //		ud.save(user3);
+
+		ld.save(loan1);
+		ld.save(loan2);
+		ld.save(loan3);
 
 		em.close();
 		emf.close();
