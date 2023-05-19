@@ -1,7 +1,10 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 
 import entities.Publication;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +41,17 @@ public class PublicationDAO {
 		Publication found = em.find(Publication.class, ISBN);
 		log.info("Trovato elemento con codice ISBN: " + ISBN
 				+ System.lineSeparator() + found.toString());
+	}
+
+	public void getByYear(int year) {
+		TypedQuery<Publication> query = em.createQuery(
+				"SELECT p FROM Publication p WHERE p.publicationYear = :year",
+				Publication.class);
+		query.setParameter("year", year);
+		List<Publication> publications = query.getResultList();
+
+		publications.forEach(p -> log.info("Trovato elemento pubblicato nel: "
+				+ year + System.lineSeparator() + p.toString()));
 	}
 
 	public void refresh(String ISBN) {

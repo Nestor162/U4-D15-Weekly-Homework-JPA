@@ -87,7 +87,7 @@ public class Application {
 		pd.getByISBN("987654321");
 
 		// 4) Ricerca per anno pubblicazione
-
+		pd.getByYear(1999);
 		em.close();
 		emf.close();
 	}
