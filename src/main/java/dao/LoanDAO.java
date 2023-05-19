@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import entities.Loan;
-import entities.User;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -17,7 +16,7 @@ public class LoanDAO {
 		this.em = em;
 	}
 
-	public void save(User l) {
+	public void save(Loan l) {
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 		em.persist(l);
