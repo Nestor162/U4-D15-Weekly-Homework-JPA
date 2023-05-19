@@ -42,11 +42,10 @@ public class Loan {
 				+ ", returnedDate=" + returnedDate + "]";
 	}
 
-	public Loan(LocalDate loanDate, LocalDate expectedReturnDate,
-			LocalDate returnedDate) {
-		super();
+	public Loan(LocalDate loanDate, LocalDate returnedDate) {
+
 		this.loanDate = loanDate;
-		this.expectedReturnDate = expectedReturnDate;
+		this.expectedReturnDate = loanDate.plusDays(30);
 		this.returnedDate = returnedDate;
 	}
 
